@@ -33,9 +33,19 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public List<Activity> GetActivityListWithCategory()
+        {
+            return _activityDal.GetListWithCategory();
+        }
+
         public Activity GetById(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Activity> GetActivityByID(int id)
+        {
+            return _activityDal.GetListAll(x => x.ActivityID == id);
         }
 
         public List<Activity> GetList()

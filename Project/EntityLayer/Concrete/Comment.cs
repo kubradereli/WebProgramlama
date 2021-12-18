@@ -22,6 +22,8 @@ namespace EntityLayer.Concrete
 
         public int BlogID { get; set; }
 
+        public int ActivityID { get; set; }
+
         public Activity Activity { get; set; }
     }
 }

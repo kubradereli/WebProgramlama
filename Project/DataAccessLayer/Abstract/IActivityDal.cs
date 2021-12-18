@@ -9,6 +9,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IActivityDal : IGenericDal<Activity>
     {
-        
+        List<Activity> GetListWithCategory();
     }
 }

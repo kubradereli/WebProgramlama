@@ -14,7 +14,13 @@ namespace Project.Controllers
 
         public IActionResult Index()
         {
-            var values = am.GetList();
+            var values = am.GetActivityListWithCategory();
+            return View(values);
+        }
+
+        public IActionResult ActivityReadAll(int id)
+        {
+            var values = am.GetActivityByID(id);
             return View(values);
         }
     }

@@ -18,5 +18,7 @@ namespace BusinessLayer.Abstract
         List<Activity> GetList();
 
         Activity GetById(int id);
+
+        List<Activity> GetActivityListWithCategory();
     }
 }
