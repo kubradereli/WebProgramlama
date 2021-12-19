@@ -56,7 +56,10 @@
                         </div>
 
                     }
-                    @await Html.PartialAsync("~/Views/Comment/CommentListByActivity.cshtml")
+                    @await Component.InvokeAsync("CommentListByActivity")
+
+                    @*@await Html.PartialAsync("~/Views/Comment/CommentListByActivity.cshtml")*@
+
                     @await Html.PartialAsync("~/Views/Comment/PartialAddComment.cshtml")
                 </div>
 
