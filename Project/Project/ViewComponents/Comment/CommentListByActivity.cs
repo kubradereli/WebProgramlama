@@ -14,7 +14,7 @@ namespace Project.ViewComponents.Comment
 
         public IViewComponentResult Invoke()
         {
-            var values = cm.GetList(5);
+            var values = cm.GetList(2);
             return View(values);
         }
     }
