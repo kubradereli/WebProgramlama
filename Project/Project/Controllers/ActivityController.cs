@@ -20,6 +20,7 @@ namespace Project.Controllers
 
         public IActionResult ActivityReadAll(int id)
         {
+            ViewBag.i = id;
             var values = am.GetActivityByID(id);
             return View(values);
         }

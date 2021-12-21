@@ -8,12 +8,9 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <body>
-    <!--//banner-->
     <section class="banner-bottom">
-        <!--/blog-->
         <div class="container">
             <div class="row">
-                <!--left-->
                 <div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
                     @foreach (var item in Model)
                     {
@@ -41,11 +38,9 @@
                                                 <i class="far fa-comment"></i> 0 Yorum
                                             </a>
                                         </li>
-
                                     </ul>
                                 </div>
                             </div>
-
                             <h3>
                                 <a href="single.html">@item.ActivityTitle</a>
                             </h3>
@@ -54,17 +49,14 @@
                             </p>
                             <a href="/Activity/Index/" class="btn btn-primary read-m">Etkinlik Listesi</a>
                         </div>
-
                     }
-                    @await Component.InvokeAsync("CommentListByActivity")
+
+                    @await Component.InvokeAsync("CommentListByActivity", new { id = ViewBag.i })
 
                     @*@await Html.PartialAsync("~/Views/Comment/CommentListByActivity.cshtml")*@
 
                     @await Html.PartialAsync("~/Views/Comment/PartialAddComment.cshtml")
                 </div>
-
-                <!--//left-->
-                <!--right-->
                 <aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
                     <div class="right-blog-info text-left">
                         <div class="tech-btm">
@@ -77,36 +69,17 @@
                                 <input type="email" placeholder="Email" required="">
                                 <input type="submit" value="Subscribe">
                             </form>
-
                         </div>
+                        @await Component.InvokeAsync("CategoryList")
                         <div class="tech-btm">
-                            <h4>Categories</h4>
-                            <ul class="list-group single">
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    Cras justo odio
-                                    <span class="badge badge-primary badge-pill">14</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    Dapibus ac facilisis in
-                                    <span class="badge badge-primary badge-pill">2</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    Morbi leo risus
-                                    <span class="badge badge-primary badge-pill">1</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="tech-btm">
-                            <h4>Top stories of the week</h4>
-
+                            <h4>Yazarın Diğer Yazıları</h4>
                             <div class="blog-grids row mb-3">
                                 <div class="col-md-5 blog-grid-left">
                                     <a href="single.html">
-                                        <img src="images/1.jpg" class="img-fluid" alt="">
+                                        <img src="~/ProjeTema/images/1.jpg" class="img-fluid" alt="">
                                     </a>
                                 </div>
                                 <div class="col-md-7 blog-grid-right">
-
                                     <h5>
                                         <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
                                     </h5>
@@ -116,12 +89,11 @@
                                         </span>
                                     </div>
                                 </div>
-
                             </div>
                             <div class="blog-grids row mb-3">
                                 <div class="col-md-5 blog-grid-left">
                                     <a href="single.html">
-                                        <img src="images/6.jpg" class="img-fluid" alt="">
+                                        <img src="~/ProjeTema/images/6.jpg" class="img-fluid" alt="">
                                     </a>
                                 </div>
                                 <div class="col-md-7 blog-grid-right">
@@ -134,7 +106,6 @@
                                         </span>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="single-gd my-5 tech-btm">
@@ -161,15 +132,14 @@
                             </div>
                         </div>
                         <div class="single-gd tech-btm">
-                            <h4>Recent Post</h4>
+                            <h4>Son Eklenen Post</h4>
                             <div class="blog-grids">
                                 <div class="blog-grid-left">
                                     <a href="single.html">
-                                        <img src="images/b1.jpg" class="img-fluid" alt="">
+                                        <img src="~/ProjeTema/images/b1.jpg" class="img-fluid" alt="">
                                     </a>
                                 </div>
                                 <div class="blog-grid-right">
-
                                     <h5>
                                         <a href="single.html">Pellentesque dui, non felis. Maecenas male</a>
                                     </h5>
@@ -178,14 +148,10 @@
                             </div>
                         </div>
                     </div>
-
                 </aside>
-                <!--//right-->
             </div>
         </div>
     </section>
-    <!--//main-->
-    <!--footer-->
     <footer>
         <div class="container">
             <div class="row">
@@ -197,7 +163,6 @@
                     </div>
                 </div>
                 <div class="col-lg-4 footer-grid-agileits-w3ls text-left">
-
                     <div class="tech-btm">
                         <h3>Latest Posts</h3>
                         <div class="blog-grids row mb-3">
@@ -217,7 +182,6 @@
                                     </span>
                                 </div>
                             </div>
-
                         </div>
                         <div class="blog-grids row mb-3">
                             <div class="col-md-5 blog-grid-left">
@@ -226,7 +190,6 @@
                                 </a>
                             </div>
                             <div class="col-md-7 blog-grid-right">
-
                                 <h5>
                                     <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
                                 </h5>
@@ -236,7 +199,6 @@
                                     </span>
                                 </div>
                             </div>
-
                         </div>
                         <div class="blog-grids row mb-3">
                             <div class="col-md-5 blog-grid-left">
@@ -245,7 +207,6 @@
                                 </a>
                             </div>
                             <div class="col-md-7 blog-grid-right">
-
                                 <h5>
                                     <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
                                 </h5>
@@ -255,7 +216,6 @@
                                     </span>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -274,7 +234,6 @@
                     <!-- //subscribe -->
                 </div>
             </div>
-            <!-- footer -->
             <div class="footer-cpy text-center">
                 <div class="footer-social">
                     <div class="copyrighttop">
@@ -304,7 +263,6 @@
                                 </a>
                             </li>
                         </ul>
-
                     </div>
                 </div>
                 <div class="w3layouts-agile-copyrightbottom">
@@ -360,11 +318,7 @@
     <a href="#home" class="scroll" id="toTop" style="display: block;">
         <span id="toTopHover" style="opacity: 1;"> </span>
     </a>
-
     <!-- //Custom-JavaScript-File-Links -->
     <script src="js/bootstrap.js"></script>
-
-
 </body>
-
 </html>
