@@ -20,5 +20,7 @@ namespace BusinessLayer.Abstract
         Activity GetById(int id);
 
         List<Activity> GetActivityListWithCategory();
+
+        List<Activity> GetActivityListByUser(int id);
     }
 }

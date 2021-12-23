@@ -23,5 +23,7 @@ namespace EntityLayer.Concrete
         public string UserPassword { get; set; }
 
         public bool UserStatus { get; set; }
+
+        public List<Activity> Activities { get; set; }
     }
 }

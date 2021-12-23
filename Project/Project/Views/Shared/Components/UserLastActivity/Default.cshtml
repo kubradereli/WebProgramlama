@@ -1,0 +1,26 @@
+﻿@using EntityLayer.Concrete
+@model List<Activity>
+
+<div class="tech-btm">
+    <h4>Kullanıcının Diğer Etkinlikleri</h4>
+    @foreach (var item in Model)
+    {
+        <div class="blog-grids row mb-3">
+            <div class="col-md-5 blog-grid-left">
+                <a href="single.html">
+                    <img src="@item.ActivityImage" class="img-fluid" alt="">
+                </a>
+            </div>
+            <div class="col-md-7 blog-grid-right">
+                <h5>
+                    <a href="single.html">@item.ActivityTitle </a>
+                </h5>
+                <div class="sub-meta">
+                    <span>
+                        <i class="far fa-clock"></i> @item.ActivityCreateDate
+                    </span>
+                </div>
+            </div>
+        </div>
+    }
+</div>
