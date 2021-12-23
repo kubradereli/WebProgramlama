@@ -53,6 +53,11 @@ namespace BusinessLayer.Concrete
             return _activityDal.GetListAll();
         }
 
+        public List<Activity> GetLast3Activity()
+        {
+            return _activityDal.GetListAll().Take(3).ToList();
+        }
+
         public List<Activity> GetActivityListByUser(int id)
         {
             return _activityDal.GetListAll(x => x.UserID == id);

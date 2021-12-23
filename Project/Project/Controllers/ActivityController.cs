@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Project.Controllers
 {
+    [AllowAnonymous]
     public class ActivityController : Controller
     {
         ActivityManager am = new ActivityManager(new EfActivityRepository());
