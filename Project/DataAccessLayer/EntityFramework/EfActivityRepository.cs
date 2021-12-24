@@ -15,10 +15,18 @@ namespace DataAccessLayer.EntityFramework
     {
         public List<Activity> GetListWithCategory()
         {
-            using(var c = new Context())
+            using (var c = new Context())
             {
                 return c.Activities.Include(x => x.Category).ToList();
-            } 
+            }
+        }
+
+        public List<Activity> GetListWithCategoryByUser(int id)
+        {
+            using (var c = new Context())
+            {
+                return c.Activities.Include(x => x.Category).Where(x => x.UserID == id).ToList();
+            }
         }
     }
 }

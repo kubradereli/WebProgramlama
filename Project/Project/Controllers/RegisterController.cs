@@ -20,6 +20,7 @@ namespace Project.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult Index(User u)
         {

@@ -7,18 +7,8 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-    public interface IActivityService
+    public interface IActivityService : IGenericService<Activity>
     {
-        void ActivityAdd(Activity activity);
-
-        void ActivityDelete(Activity activity);
-
-        void ActivityUpdate(Activity activity);
-
-        List<Activity> GetList();
-
-        Activity GetById(int id);
-
         List<Activity> GetActivityListWithCategory();
 
         List<Activity> GetActivityListByUser(int id);

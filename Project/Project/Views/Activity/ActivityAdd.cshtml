@@ -1,0 +1,33 @@
+﻿@model EntityLayer.Concrete.Activity
+
+@{
+    ViewData["Title"] = "ActivityAdd";
+    Layout = "~/Views/Shared/UsersLayout.cshtml";
+}
+
+<h1>Yeni Etkinlik Oluşturma</h1>
+<br />
+@using (Html.BeginForm("ActivityAdd", "Activity", FormMethod.Post))
+{
+    @Html.Label("Etkinlik Başlığı")
+    @Html.TextBoxFor(x => x.ActivityTitle, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ActivityTitle)
+    <br />
+
+    @Html.Label("Etkinlik İçeriği")
+    @Html.TextAreaFor(x => x.ActivityContent, 10, 3, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ActivityContent)
+    <br />
+    @Html.Label("Etkinlik Tarihi")
+    @Html.TextBoxFor(x => x.ActivityCreateDate, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ActivityCreateDate)
+    <br />
+    @Html.Label("Etkinlik Görseli")
+    @Html.TextBoxFor(x => x.ActivityImage, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ActivityImage)
+    <br />
+    @Html.Label("Kategori")
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.cv, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">KAYDET</button>
+}

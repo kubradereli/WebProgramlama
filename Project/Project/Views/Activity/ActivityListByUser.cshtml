@@ -1,0 +1,42 @@
+﻿@using EntityLayer.Concrete
+@model List<Activity>
+
+@{
+    ViewData["Title"] = "ActivityListByUser";
+    Layout = "~/Views/Shared/UsersLayout.cshtml";
+}
+
+<h1>Kullanıcının Etkinlikleri</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Etkinlik Başlığı</th>
+        <th>Oluşturulma Tarihi</th>
+        <th>Kategori</th>
+        <th>Durum</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.ActivityID</th>
+            <td>@item.ActivityTitle</td>
+            <td>@item.ActivityCreateDate</td>
+            <td>@item.Category.CategoryName</td>
+            <td>
+                @if (item.ActivityStatus)
+                {
+                    <span class="badge badge-success">Aktif</span>
+                }
+                else
+                {
+                    <span class="badge badge-secondary">Pasif</span>
+                }
+            </td>
+            <td><a href="/Activity/DeleteActivity/@item.ActivityID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Activity/EditActivity/@item.ActivityID" class="btn btn-warning">Düzenle</a></td>
+        </tr>
+    }
+</table>
+<a href="/Activity/ActivityAdd/" class="btn btn-primary">Yeni Etkinlik Oluştur</a>

@@ -18,29 +18,19 @@ namespace BusinessLayer.Concrete
             _activityDal = activityDal;
         }
 
-        public void ActivityAdd(Activity activity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ActivityDelete(Activity activity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ActivityUpdate(Activity activity)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Activity> GetActivityListWithCategory()
         {
             return _activityDal.GetListWithCategory();
         }
 
+        public List<Activity> GetListWithCategoryByUserAm(int id)
+        {
+            return _activityDal.GetListWithCategoryByUser(id);
+        }
+
         public Activity GetById(int id)
         {
-            throw new NotImplementedException();
+            return _activityDal.GetByID(id);
         }
 
         public List<Activity> GetActivityByID(int id)
@@ -61,6 +51,21 @@ namespace BusinessLayer.Concrete
         public List<Activity> GetActivityListByUser(int id)
         {
             return _activityDal.GetListAll(x => x.UserID == id);
+        }
+
+        public void TAdd(Activity t)
+        {
+            _activityDal.Insert(t);
+        }
+
+        public void TDelete(Activity t)
+        {
+            _activityDal.Delete(t);
+        }
+
+        public void TUpdate(Activity t)
+        {
+            _activityDal.Update(t);
         }
     }
 }

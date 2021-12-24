@@ -1,0 +1,31 @@
+﻿@model EntityLayer.Concrete.Activity
+
+@{
+    ViewData["Title"] = "EditActivity";
+    Layout = "~/Views/Shared/UsersLayout.cshtml";
+}
+
+<h1>Etkinlik Düzenleme Sayfası</h1>
+<br />
+@using (Html.BeginForm("EditActivity", "Activity", FormMethod.Post))
+{
+    @Html.Label("Etkinlik ID")
+    @Html.TextBoxFor(x => x.ActivityID, new { @class = "form-control" })
+    <br />
+    @Html.Label("Etkinlik Başlığı")
+    @Html.TextBoxFor(x => x.ActivityTitle, new { @class = "form-control" })
+    <br />
+    @Html.Label("Etkinlik Tarihi")
+    @Html.TextBoxFor(x => x.ActivityCreateDate, new { @class = "form-control" })
+    <br />
+    @Html.Label("Etkinlik Resmi")
+    @Html.TextBoxFor(x => x.ActivityImage, new { @class = "form-control" })
+    <br />
+    @Html.Label("Etkinlik Kategori")
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.cv, new { @class = "form-control" })
+    <br />
+    @Html.Label("Etkinlik İçeriği")
+    @Html.TextAreaFor(x => x.ActivityContent, 10, 3, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+}
