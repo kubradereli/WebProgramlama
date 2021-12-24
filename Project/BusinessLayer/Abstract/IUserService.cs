@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-    public interface IUserService
+    public interface IUserService : IGenericService<User>
     {
-        void UserAdd(User user);
+        List<User> GetUserById(int id);
     }
 }

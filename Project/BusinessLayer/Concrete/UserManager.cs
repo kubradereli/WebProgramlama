@@ -18,9 +18,34 @@ namespace BusinessLayer.Concrete
             _usereDal = usereDal;
         }
 
-        public void UserAdd(User user)
+        public User GetById(int id)
         {
-            _usereDal.Insert(user);
+            throw new NotImplementedException();
+        }
+
+        public List<User> GetList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<User> GetUserById(int id)
+        {
+            return _usereDal.GetListAll(x => x.UserID == id);
+        }
+
+        public void TAdd(User t)
+        {
+            _usereDal.Insert(t);
+        }
+
+        public void TDelete(User t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TUpdate(User t)
+        {
+            throw new NotImplementedException();
         }
     }
 }
