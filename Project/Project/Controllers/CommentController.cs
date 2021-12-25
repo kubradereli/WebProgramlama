@@ -25,13 +25,13 @@ namespace Project.Controllers
         }
 
         [HttpPost]
-        public PartialViewResult PartialAddComment(Comment c)
+        public IActionResult PartialAddComment(Comment c)
         {
             c.CommentDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             c.CommentStatus = true;
             c.ActivityID = 2;
             cm.CommentAdd(c);
-            return PartialView();
+            return RedirectToAction("Index","Activity");
         }
 
         public PartialViewResult CommentListByActivity(int id)

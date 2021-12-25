@@ -11,16 +11,16 @@ namespace BusinessLayer.Concrete
 {
     public class UserManager : IUserService
     {
-        IUserDal _usereDal;
+        IUserDal _userDal;
 
         public UserManager(IUserDal usereDal)
         {
-            _usereDal = usereDal;
+            _userDal = usereDal;
         }
 
         public User GetById(int id)
         {
-            throw new NotImplementedException();
+            return _userDal.GetByID(id);
         }
 
         public List<User> GetList()
@@ -30,12 +30,12 @@ namespace BusinessLayer.Concrete
 
         public List<User> GetUserById(int id)
         {
-            return _usereDal.GetListAll(x => x.UserID == id);
+            return _userDal.GetListAll(x => x.UserID == id);
         }
 
         public void TAdd(User t)
         {
-            _usereDal.Insert(t);
+            _userDal.Insert(t);
         }
 
         public void TDelete(User t)
@@ -45,7 +45,7 @@ namespace BusinessLayer.Concrete
 
         public void TUpdate(User t)
         {
-            throw new NotImplementedException();
+            _userDal.Update(t);
         }
     }
 }

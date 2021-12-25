@@ -14,17 +14,17 @@ namespace Project.Controllers
         NewsLetterManager nm = new NewsLetterManager(new EfNewsLetterRepository());
 
         [HttpGet]
-        public PartialViewResult SubscribeMail()
+        public IActionResult SubscribeMail()
         {
             return PartialView();
         }
 
         [HttpPost]
-        public PartialViewResult SubscribeMail(NewsLetter n)
+        public IActionResult SubscribeMail(NewsLetter n)
         {
             n.MailStatus = true;
             nm.AddNewsLetter(n);
-            return PartialView();
+            return RedirectToAction("Index", "Activity");
         }
     }
 }

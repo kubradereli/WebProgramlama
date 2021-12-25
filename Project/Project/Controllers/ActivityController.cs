@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -13,11 +14,11 @@ using System.Threading.Tasks;
 
 namespace Project.Controllers
 {
-    [AllowAnonymous]
     public class ActivityController : Controller
     {
         ActivityManager am = new ActivityManager(new EfActivityRepository());
         CategoryManager cm = new CategoryManager(new EfCategoryRepository());
+        Context c = new Context();
 
         public IActionResult Index()
         {
@@ -34,7 +35,9 @@ namespace Project.Controllers
 
         public IActionResult ActivityListByUser()
         {
-            var values = am.GetListWithCategoryByUserAm(1);
+            var userMail = User.Identity.Name;
+            var userID = c.Users.Where(x => x.UserMail == userMail).Select(y => y.UserID).FirstOrDefault();
+            var values = am.GetListWithCategoryByUserAm(userID);
             return View(values);
         }
 
@@ -54,12 +57,14 @@ namespace Project.Controllers
         [HttpPost]
         public IActionResult ActivityAdd(Activity a)
         {
+            var userMail = User.Identity.Name;
+            var userID = c.Users.Where(x => x.UserMail == userMail).Select(y => y.UserID).FirstOrDefault();
             ActivityValidator av = new ActivityValidator();
             ValidationResult results = av.Validate(a);
             if (results.IsValid)
             {
                 a.ActivityStatus = true;
-                a.UserID = 1;
+                a.UserID = userID;
                 am.TAdd(a);
                 return RedirectToAction("ActivityListByUser", "Activity");
             }
@@ -97,7 +102,9 @@ namespace Project.Controllers
         [HttpPost]
         public IActionResult EditActivity(Activity a)
         {
-            a.UserID = 1;
+            var userMail = User.Identity.Name;
+            var userID = c.Users.Where(x => x.UserMail == userMail).Select(y => y.UserID).FirstOrDefault();
+            a.UserID = userID;
             a.ActivityStatus = true;
             am.TUpdate(a);
             return RedirectToAction("ActivityListByUser");

@@ -31,7 +31,7 @@ namespace Project.Controllers
                 u.UserStatus = true;
                 u.UserAbout = "deneme test";
                 um.TAdd(u);
-                return RedirectToAction("Index", "Activity");
+                return RedirectToAction("Index", "Login");
             }
             else
             {

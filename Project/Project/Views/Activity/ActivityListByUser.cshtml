@@ -7,6 +7,7 @@
 }
 
 <h1>Kullanıcının Etkinlikleri</h1>
+<br />
 <table class="table table-bordered">
     <tr>
         <th>#</th>
@@ -27,16 +28,16 @@
             <td>
                 @if (item.ActivityStatus)
                 {
-                    <span class="badge badge-success">Aktif</span>
+                    <span class="badge badge-info">Aktif</span>
                 }
                 else
                 {
                     <span class="badge badge-secondary">Pasif</span>
                 }
             </td>
-            <td><a href="/Activity/DeleteActivity/@item.ActivityID" class="btn btn-danger">Sil</a></td>
-            <td><a href="/Activity/EditActivity/@item.ActivityID" class="btn btn-warning">Düzenle</a></td>
+            <td><a href="/Activity/DeleteActivity/@item.ActivityID" class="btn btn-inverse-danger">Sil</a></td>
+            <td><a href="/Activity/EditActivity/@item.ActivityID" class="btn btn-inverse-success">Düzenle</a></td>
         </tr>
     }
 </table>
-<a href="/Activity/ActivityAdd/" class="btn btn-primary">Yeni Etkinlik Oluştur</a>
+<a href="/Activity/ActivityAdd/" class="btn btn-info">Yeni Etkinlik Oluştur</a>
