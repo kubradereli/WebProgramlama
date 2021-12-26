@@ -2,7 +2,6 @@
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Project.Controllers
 {
-    public class LoginController : Controller
+    public class AdminLoginController : Controller
     {
         [AllowAnonymous]
         public IActionResult Index()
@@ -25,17 +24,17 @@ namespace Project.Controllers
         public async Task<IActionResult> Index(User u)
         {
             Context c = new Context();
-            var dataValue = c.Users.FirstOrDefault(x => x.UserMail==u.UserMail && x.UserPassword == u.UserPassword);
+            var dataValue = c.Users.FirstOrDefault(x => x.UserMail == u.UserMail && x.UserPassword == u.UserPassword);
             if (dataValue != null)
             {
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name,u.UserMail)
                 };
-                var userIdentitiy = new ClaimsIdentity(claims,"a");
+                var userIdentitiy = new ClaimsIdentity(claims, "a");
                 ClaimsPrincipal principal = new ClaimsPrincipal(userIdentitiy);
                 await HttpContext.SignInAsync(principal);
-                return RedirectToAction("Index", "Dashboard");
+                return RedirectToAction("ActivityListByAdmin", "Activity");
             }
             else
             {

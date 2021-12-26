@@ -18,7 +18,7 @@
                             <div class="b-grid-top">
                                 <div class="blog_info_left_grid">
                                     <a href="single.html">
-                                        <img src="~/ProjeTema/images/b1.jpg" class="img-fluid" alt="" style="background-color:#b3e0ff">
+                                        <img src="@item.ActivityImage" class="img-fluid" alt="" style="background-color:#b3e0ff">
                                     </a>
                                 </div>
                                 <div class="blog-info-middle">
@@ -43,14 +43,12 @@
 
                     @await Component.InvokeAsync("CommentListByActivity", new { id = ViewBag.i })
 
-                    @*@await Html.PartialAsync("~/Views/Comment/CommentListByActivity.cshtml")*@
-
                     @await Html.PartialAsync("~/Views/Comment/PartialAddComment.cshtml")
                 </div>
                 <aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
                     <div class="right-blog-info text-left">
                         <div class="tech-btm">
-                            <img src="~/ProjeTema/images/banner1.jpg" class="img-fluid" alt="">
+                            <img src="~/UserImageFiles/mail.jpg" class="img-fluid" alt="">
                         </div>
 
                         <h4>Mail Bültenine Abone Olun</h4>

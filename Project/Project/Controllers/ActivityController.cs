@@ -41,6 +41,12 @@ namespace Project.Controllers
             return View(values);
         }
 
+        public IActionResult ActivityListByAdmin()
+        {
+            var values = am.GetActivityListWithCategory();
+            return View(values);
+        }
+
         [HttpGet]
         public IActionResult ActivityAdd()
         {
@@ -83,6 +89,13 @@ namespace Project.Controllers
             var activityValue = am.GetById(id);
             am.TDelete(activityValue);
             return RedirectToAction("ActivityListByUser");
+        }
+
+        public IActionResult DeleteActivityAdmin(int id)
+        {
+            var activityValue = am.GetById(id);
+            am.TDelete(activityValue);
+            return RedirectToAction("ActivityListByAdmin");
         }
 
         [HttpGet]

@@ -44,6 +44,7 @@ namespace Project
                 }
             );
         }
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -74,7 +75,7 @@ namespace Project
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Activity}/{action=Index}/{id?}");
             });
         }
     }
